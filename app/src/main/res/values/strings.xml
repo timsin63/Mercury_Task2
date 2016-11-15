@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Task_2</string>
+    <string name="number">Phone:</string>
+    <string name="mail">eMail:</string>
+    <string name="empty_num">No numbers</string>
+    <string name="empty_mail">No mail addresses</string>
+</resources>
