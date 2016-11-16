@@ -4,6 +4,7 @@ import android.app.LoaderManager;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.database.ContentObserver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
@@ -20,9 +21,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, AdapterView.OnItemClickListener {
 
-    private static final int CONTACT_ID_INDEX = 0;
-    private static final int LOOKUP_KEY_INDEX = 1;
-
+    ContentObserver contactObserver;
 
     private final static String[] FROM_COLUMNS = {
             Build.VERSION.SDK_INT
@@ -37,10 +36,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             R.id.contact_icon
     };
 
-    CursorAdapter cursorAdapter;
     CursorAdapter adapter;
-
-
 
 
     @Override
@@ -56,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         list.setOnItemClickListener(this);
 
         getLoaderManager().initLoader(0, null, this);
+
+
     }
 
 
@@ -118,16 +116,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             emailList.add(eMailsCursor.getString(eMailsCursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS)));
         }
 
-
-        Log.i("contact name:", name);
-        Log.i("contact photo:", photo);
-
-        for (int i = 0; i < numbers.size(); i++) {
-            Log.i("contact number " + i + ":", numbers.get(i));
-        }
-        for (int i = 0; i < emailList.size(); i++) {
-            Log.i("contact email " + i + ":", emailList.get(i));
-        }
+        eMailsCursor.close();
 
         return new Contact(contactId, name, photo, numbers, emailList);
     }

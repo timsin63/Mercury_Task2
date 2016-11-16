@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_number_layout"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/item_vertical_margin"
+    android:layout_marginBottom="@dimen/item_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/item_vertical_margin"
+    android:paddingBottom="@dimen/item_vertical_margin"
+    android:background="@color/light_gray"
+    >
+
+    <ImageView
+        android:id="@+id/ic_call"
+        android:layout_width="@dimen/item_number_height"
+        android:layout_height="@dimen/item_number_height"
+        android:background="@drawable/call"/>
+
+    <TextView
+        android:id="@+id/phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_number_height"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:paddingLeft="@dimen/horizontal_padding"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/contact_list_text_size"
+        />
+    <ImageButton
+        android:id="@+id/sms_btn"
+        android:layout_width="@dimen/item_number_height"
+        android:layout_height="@dimen/item_number_height"
+
+        android:background="@drawable/sms"/>
+</LinearLayout>
